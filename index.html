@@ -972,6 +972,13 @@
                     <textarea name="comment" rows="3" placeholder="Особые пожелания..."></textarea>
                 </div>
 
+                <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                    <input type="checkbox" id="consent" name="consent" required style="width: auto; margin-top: 0.3rem; accent-color: var(--fire);">
+                    <label for="consent" style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+                        Я согласен на обработку персональных данных *
+                    </label>
+                </div>
+
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
                     💬 Отправить в WhatsApp
                 </button>
@@ -1044,6 +1051,8 @@
             if (formData.get('comment')) {
                 message += `💬 *Комментарий:* ${formData.get('comment')}\n`;
             }
+            
+            message += `✅ *Согласие на обработку ПД:* Да\n`;
             
             const whatsappUrl = `https://wa.me/79241657679?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
